@@ -1,23 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import Login from "./Form";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Display from "./Display";
+import Home from './Home'
 
 function App() {
+  // Initialize state for user details and array of details
+  const initialDetails = {
+    name: '',
+    email: '',
+  };
+  const [userDetails, setUserDetails] = useState(initialDetails);
+  const [arrayDetails, setArrayDetails] = useState([]);
+
+  // Function to handle form submission
+  const handleSubmit = (objectDetails) => {
+    setUserDetails(objectDetails); // Update user details state
+    setArrayDetails([...arrayDetails, objectDetails]); // Append new object to arrayDetails state
+  };
+
+  console.log(arrayDetails);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+        <Home />
+        
+        <Routes>
+          <Route path="/" element={<Login onSubmit={handleSubmit} />} />
+          <Route path="/display" element={<Display arrayDetails={arrayDetails} />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
