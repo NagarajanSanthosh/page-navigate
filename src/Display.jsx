@@ -1,3 +1,4 @@
+
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
 import './Display.css'
@@ -43,5 +44,6 @@ const Display = ({ arrayDetails }) => {
 
     )
 }
+
 
 export default Display
