@@ -4,9 +4,8 @@ import { TbListDetails } from "react-icons/tb"; import { Link } from 'react-rout
 
 const Home = () => {
     return (
-
-        <div>
-            <header>
+        <header>
+            <div>
                 <ul
                     className='list-unstyled d-flex'
                     style={{ margin: 0, padding: 0 }}>
@@ -25,9 +24,8 @@ const Home = () => {
                                 className='m-2' />Display</Link>
                     </li>
                 </ul>
-            </header>
-        </div>
-
+            </div>
+        </header>
     )
 }
 
