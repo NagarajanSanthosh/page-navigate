@@ -14,6 +14,7 @@ const Form = ({ onSubmit }) => {
         email: '',
     }
     const [userDetails, setUserDetails] = useState(details);
+    
 
     //to handle name changes on form 
     const handleNameChange = (e) => {
@@ -45,16 +46,17 @@ const Form = ({ onSubmit }) => {
         }
     }
     return (
-        <div>
+        <div style={{ maxWidth: '400px', margin: '0 auto', padding: '20px' }}>
             <form onSubmit={handleSubmit}>
                 <h2>User Login</h2>
                 <label
-                    
+                className='m-3'
                     htmlFor='name'
                 > Name:
                     <input
                         id='name'
                         type='text'
+                        className='m-2 rounded form-control'
                         value={userDetails.name}
                         onChange={handleNameChange}
                         onKeyDown={handleKeyDown}
